@@ -1,0 +1,27 @@
+agents:
+  - id: analyst
+    role: "Market Intelligence"
+    model_tier: reasoning
+    responsibilities:
+      - "Scan crypto/stocks/forex for trends"
+      - "Detect anomalies and volume shifts"
+      - "Generate 2 concise market observations per cycle"
+
+  - id: risk
+    role: "Capital Protection"
+    model_tier: routine
+    responsibilities:
+      - "Score risk level per cycle: LOW / MEDIUM / HIGH"
+      - "Enforce hard limits (in code — not just prompt)"
+      - "Block unsafe actions before execution"
+    hard_limits:
+      max_risk_per_trade_pct: 5
+      max_daily_drawdown_pct: 10
+
+  - id: ceo
+    role: "Strategic Decision Maker"
+    model_tier: critical
+    responsibilities:
+      - "Set daily market stance: BULLISH / BEARISH / NEUTRAL"
+      - "Approve or reject MEDIUM-risk actions"
+      - "Adjust strategy based on risk agent assessment"

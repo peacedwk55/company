@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-company-factory"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "pyyaml>=6.0",
+    "filelock>=3.13",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-snapshot",
+]
+live = [
+    "anthropic>=0.40.0",
+    "python-dotenv>=1.0",
+]
+server = [
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+    "python-multipart>=0.0.9",
+]
+
+[project.scripts]
+factory-create = "factory.create:main"
+factory-run = "factory.run:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["factory*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

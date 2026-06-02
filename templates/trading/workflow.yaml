@@ -1,0 +1,22 @@
+cycle: daily
+
+steps:
+  - id: market_scan
+    agent: analyst
+    output: observations
+    description: "Analyst scans market and writes observations to memory"
+
+  - id: risk_check
+    agent: risk
+    output: risk_log
+    description: "Risk agent assesses observations and scores overall risk"
+
+  - id: strategy
+    agent: ceo
+    output: decisions
+    description: "CEO sets market stance based on risk assessment"
+
+  - id: brief
+    agent: null
+    output: briefings
+    description: "Brief generator summarizes cycle into daily markdown report"

@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "Read(//c/Users/awesome/Downloads/Python-3.12.13/Python-3.12.13/**)",
+      "PowerShell(python3.12 --version 2>&1; python3 --version 2>&1; & \"$env:LOCALAPPDATA\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" --version 2>&1)",
+      "PowerShell(Get-ChildItem \"D:\\\\projects\\\\myfund\" -Recurse | Where-Object { -not $_.PSIsContainer } | Select-Object -ExpandProperty FullName | ForEach-Object { $_.Replace\\(\"D:\\\\projects\\\\myfund\\\\\",\"\"\\) })",
+      "PowerShell(Get-ChildItem \"D:\\\\Demo-Application\\\\AI-company-factory\\\\api\\\\static\\\\sprites\" | Select-Object Name, @{N='KB';E={[math]::Round\\($_.Length/1KB\\)}})",
+      "Read(//d/projects/myportal/**)",
+      "PowerShell(Copy-Item \"D:\\\\Demo-Application\\\\AI-company-factory\\\\templates\\\\_portal\\\\static\\\\office.js\" \"D:\\\\projects\\\\myportal\\\\portal\\\\static\\\\office.js\" -Force)",
+      "PowerShell(Get-ChildItem \"D:\\\\Demo-Application\\\\AI-company-factory\\\\api\\\\static\\\\sprites\" | Select-Object Name, @{N='KB';E={[math]::Round\\($_.Length/1KB,1\\)}}, LastWriteTime | Sort-Object LastWriteTime -Descending)",
+      "Bash(git push *)"
+    ],
+    "additionalDirectories": [
+      "D:\\projects\\myportal"
+    ]
+  }
+}

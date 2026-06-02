@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>AI Company Factory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+<div id="app">
+
+  <!-- ══ HEADER ══════════════════════════════════════════════════ -->
+  <header>
+    <div class="logo">&#x1F3ED; AI COMPANY FACTORY</div>
+    <button id="new-btn" class="btn-new">&#x26A1; GENERATE COMPANY</button>
+  </header>
+
+  <!-- ══ MAIN SPLIT ══════════════════════════════════════════════ -->
+  <div id="main">
+
+    <!-- LEFT: Factory Floor -->
+    <aside id="factory-floor">
+      <div class="section-title">FACTORY FLOOR</div>
+
+      <div id="bot-desk">
+        <div class="bot-sprite" id="bot-sprite">&#x1F3ED;</div>
+        <div class="bot-label">FACTORY BOT</div>
+        <div class="bot-status" id="bot-status">IDLE</div>
+        <div class="bot-msg" id="bot-msg"></div>
+      </div>
+
+      <div id="factory-stats">
+        <div class="fstat">
+          <span class="fstat-label">COMPANIES</span>
+          <span class="fstat-val" id="fs-total">0</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT: Registry -->
+    <section id="registry">
+      <div class="section-title">
+        REGISTERED COMPANIES
+        <span id="registry-count" class="count-badge">0</span>
+      </div>
+      <div id="company-list">
+        <div class="empty-msg">
+          No companies yet.<br/>
+          Click <strong>GENERATE COMPANY</strong> to create your first AI company.
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ══ BRIEF PANEL ═════════════════════════════════════════════ -->
+  <div id="brief-panel" class="hidden">
+    <div class="panel-hdr">
+      &#x1F4C4; DAILY BRIEF &nbsp;—&nbsp; <span id="brief-company-label"></span>
+      <button id="brief-close" class="btn-close">&#x2715;</button>
+    </div>
+    <pre id="brief-content"></pre>
+  </div>
+
+  <!-- ══ LOG ════════════════════════════════════════════════════ -->
+  <div id="log-panel">
+    <div class="panel-hdr">&#x1F4CB; SYSTEM LOG</div>
+    <div id="log-lines">
+      <div class="log info">&gt; Factory ready. Click GENERATE COMPANY to start.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══ MODAL: GENERATE COMPANY ═════════════════════════════════ -->
+<div id="modal" class="hidden">
+  <div class="modal-box">
+    <div class="modal-title">&#x26A1; GENERATE AI COMPANY</div>
+    <div class="modal-subtitle">Claude will design the agents, workflow, and constitution based on your description.</div>
+
+    <label>
+      <span>DESCRIBE YOUR COMPANY <span class="required">*</span></span>
+      <textarea id="inp-desc" rows="4"
+        placeholder="บริษัท AI ที่วิเคราะห์ตลาดหุ้นไทย สร้างรายงานรายวัน และแนะนำหุ้นที่น่าลงทุน เป้าหมาย: ช่วยนักลงทุนตัดสินใจเร็วขึ้น"></textarea>
+    </label>
+
+    <div class="modal-row">
+      <label class="half">
+        <span>COMPANY NAME <span class="required">*</span></span>
+        <input id="inp-name" placeholder="mycompany" maxlength="32"/>
+      </label>
+      <label class="half">
+        <span>OUTPUT DIRECTORY <span class="required">*</span></span>
+        <input id="inp-outdir" placeholder="D:\projects"/>
+      </label>
+    </div>
+
+    <label>
+      <span>TEAM SIZE (number of AI agents)</span>
+      <div class="btn-group" id="size-group">
+        <button class="btn-option active" data-val="0">AUTO ✦</button>
+        <button class="btn-option" data-val="2">2</button>
+        <button class="btn-option" data-val="3">3</button>
+        <button class="btn-option" data-val="4">4</button>
+        <button class="btn-option" data-val="5">5</button>
+      </div>
+      <div style="font-size:6px;color:#5a5a9a;margin-top:4px">AUTO = Claude เลือกขนาดทีมที่เหมาะสมให้อัตโนมัติ</div>
+    </label>
+
+    <label>
+      <span>WORK STYLE</span>
+      <div class="btn-group" id="style-group">
+        <button class="btn-option" data-val="conservative">CONSERVATIVE</button>
+        <button class="btn-option active" data-val="balanced">BALANCED</button>
+        <button class="btn-option" data-val="aggressive">AGGRESSIVE</button>
+      </div>
+    </label>
+
+    <div class="path-preview" id="path-preview"></div>
+
+    <div class="modal-actions">
+      <button id="generate-btn" class="btn-generate">&#x26A1; GENERATE &amp; CREATE</button>
+      <button id="cancel-btn">CANCEL</button>
+    </div>
+    <div id="modal-error" class="hidden error-text"></div>
+  </div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

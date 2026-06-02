@@ -1,0 +1,22 @@
+id: trading
+name: "AI Trading Company"
+version: 1.0
+description: "Autonomous trading & investment company — paper trading by default"
+requires_disclaimer: true
+
+inputs:
+  name:
+    type: string
+    required: true
+    pattern: "^[a-z0-9_]{3,32}$"
+  risk_level:
+    type: enum
+    values: [low, medium, high]
+    default: low
+  initial_capital:
+    type: number
+    min: 0
+    default: 0
+
+defaults:
+  execution_mode: paper

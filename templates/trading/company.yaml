@@ -1,0 +1,13 @@
+name: {{name}}
+type: trading
+risk_level: {{risk_level}}
+execution_mode: {{execution_mode}}
+initial_capital: {{initial_capital}}
+
+budget:
+  max_daily_tokens: 100000
+  model_tier:
+    routine: claude-haiku-4-5-20251001
+    reasoning: claude-sonnet-4-6
+    critical: claude-opus-4-8
+  on_exceed: stop_and_alert

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Company Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/company.css"/>
+</head>
+<body>
+
+<!-- ══ HEADER ════════════════════════════════════════════ -->
+<header id="hdr">
+  <div class="hdr-left">
+    <span class="company-icon">&#x1F4E6;</span>
+    <span id="hdr-name">LOADING...</span>
+    <span class="hdr-tag" id="hdr-type"></span>
+  </div>
+  <div class="hdr-center">
+    <span class="hdr-label">TIME</span>
+    <span id="hdr-time">--:--</span>
+  </div>
+  <div class="hdr-right">
+    <a href="/" class="btn-back">&#x2190; FACTORY</a>
+    <button id="run-btn" class="btn-run" disabled>&#x25B6; RUN CYCLE</button>
+  </div>
+</header>
+
+<!-- ══ PIPELINE STATUS BAR ═══════════════════════════════ -->
+<div id="pipeline-bar">
+  <div class="pipe-step" id="pipe-overnight">
+    <span class="pipe-moon">&#x1F319;</span>
+    OVERNIGHT: AI AGENTS WORK
+    <span class="pipe-dots" id="pipe-agents-dots"></span>
+  </div>
+  <div class="pipe-arrow">&#x279C;</div>
+  <div class="pipe-step" id="pipe-morning">
+    <span>&#x1F305;</span>
+    MORNING: HUMAN REVIEWS &amp; APPROVES
+    <span id="pipe-human-icon">&#x1F464;</span>
+  </div>
+</div>
+
+<!-- ══ MAIN GRID ══════════════════════════════════════════ -->
+<div id="main-grid">
+
+  <!-- LEFT: Team Status -->
+  <aside id="team-status">
+    <div class="panel-title">TEAM STATUS</div>
+    <div id="agent-status-list">
+      <!-- filled by JS -->
+    </div>
+    <div class="all-systems" id="all-systems">
+      <span class="dot dot-grey"></span> ALL SYSTEMS IDLE
+    </div>
+  </aside>
+
+  <!-- CENTER: Agent Workspaces -->
+  <div id="workspaces">
+    <!-- filled by JS -->
+  </div>
+
+  <!-- RIGHT: Agent Cards + Pipeline Log -->
+  <aside id="right-col">
+    <div id="agent-cards">
+      <!-- filled by JS -->
+    </div>
+    <div class="panel" id="pipeline-log-panel">
+      <div class="panel-title">PIPELINE LOG</div>
+      <div id="pipeline-steps">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- ══ BOTTOM STATS ═══════════════════════════════════════ -->
+<footer id="stats-bar">
+  <div class="stat-item">
+    <span class="stat-icon">&#x23F1;</span>
+    <div>
+      <div class="stat-label">RUNTIME</div>
+      <div class="stat-val" id="st-runtime">0h 0m</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-icon">&#x1F916;</span>
+    <div>
+      <div class="stat-label">AI AGENTS</div>
+      <div class="stat-val" id="st-agents">0/0 ONLINE</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-icon">&#x1F4CA;</span>
+    <div>
+      <div class="stat-label">OBSERVATIONS</div>
+      <div class="stat-val" id="st-obs">0</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-icon">&#x1F4CB;</span>
+    <div>
+      <div class="stat-label">DECISIONS</div>
+      <div class="stat-val" id="st-dec">0</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <span class="stat-icon">&#x1F3C6;</span>
+    <div>
+      <div class="stat-label">PIPELINE STATUS</div>
+      <div class="stat-val" id="st-status">STANDBY</div>
+    </div>
+  </div>
+</footer>
+
+<script src="/static/company.js"></script>
+</body>
+</html>
